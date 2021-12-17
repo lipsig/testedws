@@ -1,6 +1,28 @@
-.grid{
-    padding-top: 10px;
+.grid a{
+    text-decoration: none;
 }
+
+
+.grid #result{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+}
+
+.grid #counter{
+  padding-left: 30px;
+  width: 90%;
+  background:#eeeff1;
+  text-align: left;
+  height: 30px;
+  padding-top: 5px  ;
+}
+
+.grid #sorter{
+    width:  10%;
+    background:#eeeff1;
+  }
+  
 
 .bandBlock{
     cursor: pointer;
