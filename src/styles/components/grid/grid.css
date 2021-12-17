@@ -1,5 +1,6 @@
 .grid a{
     text-decoration: none;
+    color: unset;
 }
 
 
@@ -58,6 +59,7 @@
 .bandBlock .bandInfo h3{
  margin:0;
  font-weight: 500;
+ color:#000!important;
  text-transform: uppercase;
 }
 

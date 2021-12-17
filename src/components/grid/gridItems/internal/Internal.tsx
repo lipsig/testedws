@@ -4,12 +4,14 @@ import { useLocation } from 'react-router-dom'
 const Internal = (props:any) => {
 
     const location = useLocation()
-
+    const query = new URLSearchParams(location.search);
     console.log(location)
-    console.log(props)
+
+    const token = query.get('item')
+  
     return (
         <div>
-            eai
+            {token}
         </div>
     )
 }

@@ -30,7 +30,9 @@ const Grid = (props) => {
          
         </div>
           {props.myData.map(band =>
-           <Link to={{pathname:`/internal`, oi:{band:band.id} }}>
+           <Link to={{pathname:`/internal?item=${band.id}`,     state: {
+            fromNotifications: true
+          }    }}>
             <div className='bandBlock' key={band.id}>
               <div className='imageBlock'>
                 <img src={band.image}></img>
