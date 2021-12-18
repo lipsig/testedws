@@ -17,7 +17,7 @@ const Grid = (props) => {
   
 
   if(props.isFetching) return <div>carregando...</div>
-
+ 
   return (
     <div className='grid'>  
         <div id='result'>
