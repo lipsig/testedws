@@ -30,10 +30,8 @@ const Grid = (props) => {
          
         </div>
           {props.myData.map(band =>
-           <Link to={{pathname:`/internal?item=${band.id}`,     state: {
-            fromNotifications: true
-          }    }}>
-            <div className='bandBlock' key={band.id}>
+           <a key={band.id} href={`/internal?item=`+band.id}>
+            <div className='bandBlock'>
               <div className='imageBlock'>
                 <img src={band.image}></img>
               </div>
@@ -42,7 +40,7 @@ const Grid = (props) => {
                 <span>{band.numPlays.toLocaleString('en-US').replaceAll(',','.')} PLAYS</span>
               </div>
             </div>
-            </Link>
+            </a>
           )}  
     </div>
   );

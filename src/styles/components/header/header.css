@@ -8,8 +8,14 @@
     align-items: center;   
 }
 
-.Header .Logo{
+.Header a{
     height: auto;
     width: 22%;
+    padding-right: 28px;
+    margin-top: 3px;
+}
+.Header a .Logo {
+    height: auto;
+    width: 70px;
     padding-right: 28px;
 }
