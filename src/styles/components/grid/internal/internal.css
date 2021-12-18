@@ -1,0 +1,63 @@
+#coverImage{
+    position: relative;
+}
+
+#basicInfo{
+    position: absolute;
+    bottom:20px;
+    text-align: center;
+    width: 100%;
+ 
+}
+#infoContent{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    justify-self: center;
+    align-items: flex-end;
+}
+#profileBand{
+    height: 80px;
+    width: 80px;
+    border-radius: 100%;
+    border: solid 2px black;
+    margin: 0 auto;
+}
+
+#genre,#numPlays{
+    margin: 0 10px;
+    width: 35%;
+    text-transform: uppercase;
+}
+
+
+
+#basicInfo h3{
+    width: 100%;
+    color:black;
+    font-weight: bold;
+}
+
+@media only screen and (max-width: 767px) {
+    #basicInfo{  
+        bottom:70px;    
+    }
+}
+
+@media only screen and (max-width: 360px) {
+    #basicInfo{  
+        bottom:20px;    
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    #basicInfo{  
+        bottom:-25px;  
+    }
+}
+
+#description p{
+    text-align: justify;
+    text-justify: inter-word;
+    margin: 0 13%;
+}
