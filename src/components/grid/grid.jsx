@@ -59,9 +59,10 @@ const Grid = (props) => {
       <div id='result'>
         <div id='counter'>
           <span>{sQuery == null ? props.myData.length : searchResults.current} 
-          {sQuery == null && props.myData.length>1? ' Resultados': ' Resultado'}
-          {sQuery != null && searchResults.current.length<=1? ' Resultado': null}
-          {sQuery != null && searchResults.current.length>1? ' Resultados': null}
+          {sQuery == null && props.myData.length>1? ' Resultados': null}
+          {sQuery == null && props.myData.length<1? ' Resultado': null}
+          {sQuery != null && searchResults.current<=1? ' Resultado': null}
+          {sQuery != null && searchResults.current >1 ? ' Resultados': null}
           </span>
         </div>
         <div id='sorter'>
