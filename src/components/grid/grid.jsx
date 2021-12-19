@@ -1,47 +1,88 @@
-import React, {useEffect} from 'react'
+import React, { useEffect, useRef } from 'react'
 import { connect } from 'react-redux';
 import { fetchData } from '../../actions';
 import '../../styles/components/grid/grid.css'
+import { useLocation } from 'react-router-dom'
 import { Link } from "react-router-dom";
+import sorterImg from '../../assets/order_by.png'
 
 const Grid = (props) => {
 
+  const location = useLocation()
 
- useEffect(() => {
-  props.dispatch(fetchData());
- }, [])
+  const query = new URLSearchParams(location.search);
 
- //function handleClick(id){
-  // props.history.push('/interna/'+id)
- //}
-  
+  const sQuery = query.get('album')
 
-  if(props.isFetching) return <div>carregando...</div>
- 
-  return (
-    <div className='grid'>  
-        <div id='result'>
-          <div id='counter'>
-           <span>{props.myData.length} Resultados</span> 
+  const searchResults = useRef(0)
+
+  //dispatch Redux only one time
+  useEffect(() => {
+    props.dispatch(fetchData());
+  }, [])
+
+  function handlerResult(data) {
+    const a = data;
+    if (a.filter(item => item.name.toLowerCase().includes(sQuery.toLowerCase())).length > 0) {
+      searchResults.current = a.filter(item => item.name.toLowerCase().includes(sQuery.toLowerCase())).length
+      return a.filter(item => item.name.toLowerCase().includes(sQuery.toLowerCase())).map(band =>
+        <a key={band.id} href={`/internal?item=` + band.id}>
+          <div className='bandBlock'>
+            <div className='imageBlock'>
+              <img src={band.image}></img>
+            </div>
+            <div className='bandInfo'>
+              <h3>{band.name}</h3>
+              <span>{band.numPlays.toLocaleString('en-US').replaceAll(',', '.')} PLAYS</span>
+            </div>
           </div>
-          <div id='sorter'>
-              <button id='sorterButton'></button>
+        </a>
+      )
+    }
+    else {
+      return <a>
+        <div className='bandBlock'>
+          <div className='imageBlock' style={{ visibility: 'hidden' }}>
+            <img></img>
           </div>
-         
+          <div className='bandInfo'>
+            <h3>Sem Resultado</h3>
+          </div>
         </div>
-          {props.myData.map(band =>
-           <a key={band.id} href={`/internal?item=`+band.id}>
+      </a>
+    }
+  }
+
+
+  if (props.isFetching) return <div>carregando...</div>
+
+  return (
+    <div className='grid'>
+      <div id='result'>
+        <div id='counter'>
+          <span>{sQuery == null ? props.myData.length : searchResults.current} Resultados</span>
+        </div>
+        <div id='sorter'>
+          <button style={{ border: 'none', backgroundImage: 'url("../../assets/order_by.png")', backgroundRepeat: 'no-repeat', backgroundSize: '20px', backgroundPosition: 'center' }}></button>
+        </div>
+
+      </div>
+      {sQuery ?
+        handlerResult(props.myData)
+        :
+        props.myData.map(band =>
+          <a key={band.id} href={`/internal?item=` + band.id}>
             <div className='bandBlock'>
               <div className='imageBlock'>
                 <img src={band.image}></img>
               </div>
               <div className='bandInfo'>
                 <h3>{band.name}</h3>
-                <span>{band.numPlays.toLocaleString('en-US').replaceAll(',','.')} PLAYS</span>
+                <span>{band.numPlays.toLocaleString('en-US').replaceAll(',', '.')} PLAYS</span>
               </div>
             </div>
-            </a>
-          )}  
+          </a>
+        )}
     </div>
   );
 

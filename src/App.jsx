@@ -12,8 +12,9 @@ import {
 function App() {
   return (
     <div className="App">
-      <Header></Header>
+ 
       <BrowserRouter>
+      <Header></Header>
         <Routes>
           <Route path="/" element={<Grid />} />
           <Route path="/internal" element={<Internal />} />

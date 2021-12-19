@@ -16,6 +16,7 @@
 }
 
 .Bar button{
+    cursor: pointer;
     position: relative;
     left: -47px;
     height: 30px;
@@ -25,6 +26,7 @@
 }
 
 .Bar button::after{
+    cursor: pointer;
     height: 16px;
     width: 16px;
     position: absolute;
@@ -33,6 +35,6 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
-    top: 6px;
+    top: 4px;
     right: -5px;
 }
