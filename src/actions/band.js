@@ -1,25 +1,25 @@
-export const REQUEST_DATA2 = 'REQUEST_DATA';
-export const GET_DATA_FIRST2 = 'GET_DATA_FIRST';
+export const REQUEST_BAND = 'REQUEST_DATA';
+export const GET_DATA_BAND = 'GET_DATA_FIRST';
 
-export const requestData2 = () => ({
-  type: REQUEST_DATA2
+export const requestBand = () => ({
+  type: REQUEST_BAND
 });
 
-export const getDataFirst2 = bandInternal => ({
-  type: GET_DATA_FIRST2,
+export const getDataBand = bandInternal => ({
+  type: GET_DATA_BAND,
   bandInternal
 });
 
-export const fetchData2 = (id) => dispatch => {
-  dispatch(requestData2());
-  return getData2(id).then(band => {
+export const fetchDataBand = (id) => dispatch => {
+  dispatch(requestBand());
+  return getBand(id).then(band => {
     setTimeout(() => {
-      return dispatch(getDataFirst2(band))
+      return dispatch(getDataBand(band))
     }, 1000);
   });
 };
 
-const getData2 = (id) => {  
+const getBand = (id) => {  
   return fetch(`https://iws-brazil-labs-iws-recruiting-bands.iwsbrazil.io/api/bands/${id}`, { method: 'GET'})
       .then(response => response.json());
 }

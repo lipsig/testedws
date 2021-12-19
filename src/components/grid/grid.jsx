@@ -4,7 +4,8 @@ import { fetchData } from '../../actions';
 import '../../styles/components/grid/grid.css'
 import { useLocation } from 'react-router-dom'
 import { Link } from "react-router-dom";
-import sorterImg from '../../assets/order_by.png'
+
+
 
 const Grid = (props) => {
 
@@ -40,10 +41,10 @@ const Grid = (props) => {
       return <a>
         <div className='bandBlock'>
           <div className='imageBlock' style={{ visibility: 'hidden' }}>
-            <img></img>
           </div>
-          <div className='bandInfo'>
+          <div style={{margin:'40px 5px',textAlign:'center'}}>
             <h3>Sem Resultado</h3>
+            <img style={{width:'60px'}} src={require('../../assets/noresults.png')} alt="noResult" />
           </div>
         </div>
       </a>
@@ -67,7 +68,7 @@ const Grid = (props) => {
           <button style={{ border: 'none', backgroundImage: 'url("../../assets/order_by.png")', backgroundRepeat: 'no-repeat', backgroundSize: '20px', backgroundPosition: 'center' }}></button>
         </div>
       </div>
-      {sQuery ?
+      {sQuery!=null ?
         handlerResult(props.myData)
         :
         props.myData.map(band =>

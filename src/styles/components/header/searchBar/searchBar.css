@@ -15,7 +15,7 @@
     padding: 0px 36px;
 }
 
-.Bar button{
+.Bar #searcher button{
     cursor: pointer;
     position: relative;
     left: -47px;
@@ -25,7 +25,20 @@
     background-color: transparent;
 }
 
-.Bar button::after{
+.Bar #eraser{
+    cursor: pointer;
+    position: absolute;
+    left: 27px;
+    height: 30px;
+    border: none;
+    color:#d5d5d5;
+    font-size: 15px;
+    padding: 0!important;
+    font-weight: bold;
+    background-color: transparent;
+}
+
+.Bar #searcher button::after{
     cursor: pointer;
     height: 16px;
     width: 16px;

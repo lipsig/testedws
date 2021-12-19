@@ -9,6 +9,9 @@ const Searchbar = (props) => {
 
     return (
         <div className='Bar'>
+            {inputValue!= ""?
+            <button id="eraser" onClick={() => setInputValue('')}>X</button>:null
+            }
             <input type="text" onChange={(e) => setInputValue(e.target.value)} value={inputValue} />
             <a id="searcher" href={`/?album=${inputValue}`}>
                 <button onClick={() => props.dispatch(fetchData())}>

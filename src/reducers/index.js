@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 import { GET_DATA_FIRST, REQUEST_DATA  } from '../actions';
-import { GET_DATA_FIRST2, REQUEST_DATA2 } from '../actions/band';
+import { GET_DATA_BAND, REQUEST_BAND } from '../actions/band';
 import { GET_ALBUMS_FIRST, REQUEST_ALBUMS } from '../actions/albuns';
 
 const initialState = {
@@ -32,12 +32,12 @@ const things = (state = initialState, action) => {
 
 const band = (state = initialState, action) => {
   switch (action.type) {
-    case REQUEST_DATA2:
+    case REQUEST_BAND:
       return {
         ...state,
         isFetching2: true
       };
-    case GET_DATA_FIRST2:
+    case GET_DATA_BAND:
       return {
         ...state,
         isFetching2: false,

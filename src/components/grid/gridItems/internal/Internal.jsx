@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import { connect } from 'react-redux';
-import { fetchData2 } from '../../../../actions/band';
+import { fetchDataBand } from '../../../../actions/band';
 import { fetchAlbum } from '../../../../actions/albuns';
 import { Link } from "react-router-dom";
 import '../../../../styles/components/grid/internal/internal.css'
@@ -15,7 +15,7 @@ const Internal = (props) => {
   const token = query.get('item')
 
   useEffect(() => {
-    props.dispatch(fetchData2(token));
+    props.dispatch(fetchDataBand(token));
   }, [])
 
   function textHandler(text) {
