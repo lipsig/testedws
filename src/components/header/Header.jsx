@@ -7,16 +7,14 @@ import { useLocation } from 'react-router-dom'
 
 const Header = () => {
     const location = useLocation()
-
-    const query = new URLSearchParams(location.search);
-    
+    const query = new URLSearchParams(location.search);    
     const sQuery = query.get('album')
 
     return (
         <div className='Header'>
             <Searchbar sQuery={sQuery}></Searchbar>
             <a href='/'>
-            <img className='Logo' alt="logo" src={Logo}></img>
+                <img className='Logo' alt="logo" src={Logo}></img>
             </a>
         </div>
     )

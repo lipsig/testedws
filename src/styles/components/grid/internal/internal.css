@@ -38,10 +38,17 @@
     font-weight: bold;
 }
 
+@media only screen and (min-width: 768px) {
+   #coverImage{
+       height: 500px!important;
+   }
+}
+
 @media only screen and (max-width: 767px) {
     #basicInfo{  
         bottom:70px;    
     }
+   
 }
 
 @media only screen and (max-width: 360px) {
@@ -53,6 +60,9 @@
 @media only screen and (max-width: 320px) {
     #basicInfo{  
         bottom:-25px;  
+    }
+    #description {
+        padding-top: 65px;
     }
 }
 

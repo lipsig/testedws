@@ -14,7 +14,6 @@ export const fetchAlbum = () => dispatch => {
   dispatch(requestAlbum());
   return getAlbum().then(albums => {
     setTimeout(() => {
-        console.log('entrou ')
       return dispatch(getAlbumFirst(albums))
     }, 1000);
   });

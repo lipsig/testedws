@@ -9,11 +9,8 @@ import sorterImg from '../../assets/order_by.png'
 const Grid = (props) => {
 
   const location = useLocation()
-
   const query = new URLSearchParams(location.search);
-
   const sQuery = query.get('album')
-
   const searchResults = useRef(0)
 
   //dispatch Redux only one time
@@ -60,12 +57,15 @@ const Grid = (props) => {
     <div className='grid'>
       <div id='result'>
         <div id='counter'>
-          <span>{sQuery == null ? props.myData.length : searchResults.current} Resultados</span>
+          <span>{sQuery == null ? props.myData.length : searchResults.current} 
+          {sQuery == null && props.myData.length>1? ' Resultados': ' Resultado'}
+          {sQuery != null && searchResults.current.length<=1? ' Resultado': null}
+          {sQuery != null && searchResults.current.length>1? ' Resultados': null}
+          </span>
         </div>
         <div id='sorter'>
           <button style={{ border: 'none', backgroundImage: 'url("../../assets/order_by.png")', backgroundRepeat: 'no-repeat', backgroundSize: '20px', backgroundPosition: 'center' }}></button>
         </div>
-
       </div>
       {sQuery ?
         handlerResult(props.myData)
@@ -85,7 +85,6 @@ const Grid = (props) => {
         )}
     </div>
   );
-
 }
 
 const mapStateToProps = ({ things: { myData, isFetching } }) => ({
